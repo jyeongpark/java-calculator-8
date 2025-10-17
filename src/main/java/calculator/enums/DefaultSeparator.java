@@ -5,7 +5,7 @@ import java.util.Arrays;
 public enum DefaultSeparator {
 
     COMMA(","),
-    COLON(";");
+    COLON(":");
 
     private final String value;
 
