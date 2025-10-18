@@ -1,12 +1,15 @@
 package calculator.model;
 
+import calculator.constants.Constants;
 import calculator.enums.DefaultSeparator;
 import calculator.enums.ForbiddenSeparator;
 
 public class Separator {
+    private final String value;
 
     public Separator(String value) {
         validateSeparator(value);
+        this.value = value;
     }
 
     private void validateSeparator(String separator) {
@@ -18,7 +21,7 @@ public class Separator {
             throw new IllegalArgumentException("구분자는 한 글자만 사용할 수 있어요.");
         }
 
-        if (separator.matches("\\\\d+\n")) {
+        if (separator.matches(Constants.NUMBER_ONLY_REGEX)) {
             throw new IllegalArgumentException("구분자는 숫자가 될 수 없어요.");
         }
 
@@ -29,5 +32,9 @@ public class Separator {
         if (DefaultSeparator.isDefaultSeparator(separator)) {
             throw new IllegalArgumentException("기본 입력자는 커스텀 구분자가 될 수 없어요.");
         }
+    }
+
+    public String getValue() {
+        return this.value;
     }
 }
