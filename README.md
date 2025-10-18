@@ -12,7 +12,7 @@ mvc 패턴을 이용한 문자열 덧셈 계산기 만들기
 ### Main
 
 - **Application**
-    - [ ] calculatorController를 통해 계산기를 실행한다.
+    - [X] calculatorController를 통해 계산기를 실행한다.
 
 ### Model
 
