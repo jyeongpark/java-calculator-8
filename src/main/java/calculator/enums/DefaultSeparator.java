@@ -13,12 +13,12 @@ public enum DefaultSeparator {
         this.value = value;
     }
 
-    public String getSeparator() {
-        return value;
-    }
-
     public static boolean isDefaultSeparator(String value) {
         return Arrays.stream(DefaultSeparator.values())
                 .anyMatch(separator -> separator.value.equals(value));
+    }
+
+    public static boolean isNotDefaultSeparator(String value) {
+        return !isDefaultSeparator(value);
     }
 }
