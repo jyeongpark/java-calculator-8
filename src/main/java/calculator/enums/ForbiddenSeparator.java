@@ -7,7 +7,7 @@ public enum ForbiddenSeparator {
     MINUS("-"),
     MULTIPLY("*"),
     DIVIDE("/"),
-    SLASH("/");
+    DOT(".");
 
     private final String value;
 
