@@ -1,22 +1,18 @@
 package calculator.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
-    private ArrayList<Integer> numbers;
-    private int sum;
+    private final List<Double> numbers;
+    private double sum;
 
-    public Calculator() {
-    }
-
-    public Calculator(ArrayList<Integer> numbers) {
+    public Calculator(List<Double> numbers) {
         this.numbers = numbers;
-        this.sum = 0;
+        this.sum = 0.0;
     }
 
-    public Integer getSum() {
+    public double sum() {
         numbers.forEach(number -> sum += number);
         return sum;
     }
-
 }
