@@ -1,6 +1,7 @@
 package calculator.view;
 
 import calculator.constants.Constants;
+import calculator.enums.Message;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class InputView {
     private static final Pattern CANDIDATE_SEPARATOR_PATTERN = Pattern.compile(Constants.CANDIDATE_SEPARATOR_REGEX);
 
     public static String inputValue() {
-        System.out.println("덧셈할 문자열을 입력해 주세요.");
+        System.out.println(Message.INPUT.getValue());
         return Console.readLine();
     }
 
@@ -28,7 +29,7 @@ public class InputView {
         String expression = extractExpression(input);
 
         if (!expression.matches(Constants.END_WITH_NUMBER_REGEX)) {
-            throw new IllegalArgumentException("입력은 숫자로 끝나야 합니다.");
+            throw new IllegalArgumentException(Message.NOT_END_WITH_NUMBER.getValue());
         }
 
         Matcher candidateMatcher = CANDIDATE_SEPARATOR_PATTERN.matcher(expression);
@@ -37,13 +38,13 @@ public class InputView {
         while (candidateMatcher.find()) {
             result.add(candidateMatcher.group());
         }
-        
+
         return result;
     }
 
     public static String extractExpression(String input) {
         if (input == null || input.isEmpty()) {
-            throw new IllegalArgumentException("입력이 비어있습니다.");
+            throw new IllegalArgumentException(Message.EMPTY_INPUT.getValue());
         }
 
         Matcher matcher = CUSTOM_SEPARATOR_PATTERN.matcher(input);

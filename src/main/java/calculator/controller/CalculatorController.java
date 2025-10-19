@@ -1,6 +1,7 @@
 package calculator.controller;
 
 import calculator.constants.Constants;
+import calculator.enums.Message;
 import calculator.model.Calculator;
 import calculator.model.Separators;
 import calculator.view.InputView;
@@ -37,7 +38,7 @@ public class CalculatorController {
 
     private void validatePositiveNumber(String value) {
         if (value.isEmpty() || !value.matches(Constants.POSITIVE_NUMBER_REGEX)) {
-            throw new IllegalArgumentException("양수만 계산할 수 있어요.");
+            throw new IllegalArgumentException(Message.ONLY_POSITIVE.getValue());
         }
     }
 }

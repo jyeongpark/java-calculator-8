@@ -2,6 +2,7 @@ package calculator.model;
 
 import calculator.constants.Constants;
 import calculator.enums.DefaultSeparator;
+import calculator.enums.Message;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,14 +22,14 @@ public class Separators {
 
     private void validateSeparators(final List<String> candidateSeparators) {
         if (candidateSeparators.stream().anyMatch(DefaultSeparator::isNotDefaultSeparator)) {
-            throw new IllegalArgumentException("숫자와 사용 가능한 구분자 외의 문자는 사용할 수 없습니다.");
+            throw new IllegalArgumentException(Message.NOT_ALLOWED_SEPARATOR.getValue());
         }
     }
 
     private void validateSeparators(final List<String> candidateSeparators, final Separator customSeparator) {
         if (candidateSeparators.stream()
                 .anyMatch(candidate -> isNotAllowedSeparator(candidate, customSeparator))) {
-            throw new IllegalArgumentException("숫자와 사용 가능한 구분자 외의 문자는 사용할 수 없습니다.");
+            throw new IllegalArgumentException(Message.NOT_ALLOWED_SEPARATOR.getValue());
         }
     }
 
@@ -39,7 +40,7 @@ public class Separators {
 
     private Separator validCustomSeparator(String candidateCustomSeparator) {
         if (DefaultSeparator.isDefaultSeparator(candidateCustomSeparator)) {
-            throw new IllegalArgumentException("기본 입력자는 커스텀 구분자가 될 수 없어요.");
+            throw new IllegalArgumentException(Message.NOT_ALLOWED_CUSTOM_SEPARATOR.getValue());
         }
 
         return new Separator(candidateCustomSeparator);
