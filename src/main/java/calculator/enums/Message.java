@@ -8,6 +8,7 @@ public enum Message {
     NOT_ALLOWED_SEPARATOR("사용할 수 없는 구분자에요."),
     NOT_ALLOWED_CUSTOM_SEPARATOR("기본 구분자는 커스텀 구분자가 될 수 없어요."),
     NOT_END_WITH_NUMBER("입력은 숫자로 끝나야해요."),
+    TOO_LARGE_NUMBER("입력된 숫자가 너무 커서 계산할 수 없어요."),
     EMPTY_INPUT("입력이 비어있어요."),
     INPUT("덧셈할 문자열을 입력해 주세요."),
     RESULT("결과 : ");
