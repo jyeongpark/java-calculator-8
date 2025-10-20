@@ -1,13 +1,10 @@
 package calculator.view;
 
 import calculator.enums.Message;
+import calculator.model.PositiveNumber;
 
 public class OutputView {
-    public static void printCalculateResult(Number result) {
-        if (result.doubleValue() % 1 == 0) {
-            System.out.println(Message.RESULT.getValue() + result.intValue());
-            return;
-        }
-        System.out.println(Message.RESULT.getValue() + result.doubleValue());
+    public static void printCalculateResult(PositiveNumber result) {
+        System.out.println(Message.RESULT.getValue() + result.toString());
     }
 }
