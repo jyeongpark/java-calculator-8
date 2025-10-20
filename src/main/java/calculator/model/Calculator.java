@@ -3,16 +3,14 @@ package calculator.model;
 import java.util.List;
 
 public class Calculator {
-    private final List<Double> numbers;
-    private double sum;
+    private final List<PositiveNumber> numbers;
 
-    public Calculator(List<Double> numbers) {
+    public Calculator(List<PositiveNumber> numbers) {
         this.numbers = numbers;
-        this.sum = 0.0;
     }
 
-    public double sum() {
-        numbers.forEach(number -> sum += number);
-        return sum;
+    public PositiveNumber sum() {
+        return numbers.stream()
+                .reduce(PositiveNumber.identity(), PositiveNumber::add);
     }
 }
